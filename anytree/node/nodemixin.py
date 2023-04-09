@@ -274,6 +274,10 @@ class NodeMixin:
         """Method call after attaching `children`."""
 
     @property
+    def pathStr(self):
+        return self.separator.join([str(node.name) for node in reversed(list(self.iter_path_reverse()))])
+
+    @property
     def path(self):
         """
         Path from root node down to this `Node`.
